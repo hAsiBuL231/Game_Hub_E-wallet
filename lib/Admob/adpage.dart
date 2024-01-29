@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gamehub2/Admob/WebViewPage.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../All Functions Page/Functions.dart';
@@ -157,14 +158,14 @@ class _AdmobPageState extends State<AdmobPage> {
                               padding: EdgeInsets.all(20.0),
                               child: Text(' Reward:\nAd', softWrap: true, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             ))),
-                    const InkWell(
-                        //onTap: () => _showRewardedAd(),
-                        child: Card(
-                            color: Colors.white24,
+                    InkWell(
+                        onTap: () => nextPage(const MyWebView(url: 'https://pub.dev/packages/webview_flutter',), context),
+                        child: const Card(
+                            color: Colors.orange,
                             child: Padding(
                               padding: EdgeInsets.all(20.0),
                               child:
-                                  Text(' Reward: \nComing..', softWrap: true, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                                  Text(' Reward: \nWeb', softWrap: true, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             ))),
                     const InkWell(
                         //onTap: () => _showRewardedAd(),

@@ -268,8 +268,9 @@ class _HomepageWidgetState extends State<HomepageWidget> {
                                                                   }).onError((error, stackTrace) => showToast(error.toString()));
 
 ///////////////////////////////////////////////////////////////////////       Upgrade Button Function End      ////////////////////////////////////////////////////////////////////////////////
-                                                                } else
+                                                                } else {
                                                                   showToast('Insufficient Balance');
+                                                                }
                                                               },
                                                               child: const Text('Confirm'))
                                                         ]);
