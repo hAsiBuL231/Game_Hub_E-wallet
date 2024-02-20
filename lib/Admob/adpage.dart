@@ -159,7 +159,7 @@ class _AdmobPageState extends State<AdmobPage> {
                               child: Text(' Reward:\nAd', softWrap: true, textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             ))),
                     InkWell(
-                        onTap: () => nextPage(const MyWebView(url: 'https://pub.dev/packages/webview_flutter',), context),
+                        onTap: () => nextPage(const MyWebView(), context),
                         child: const Card(
                             color: Colors.orange,
                             child: Padding(

@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:provider/provider.dart';
+import 'Admob/webViewProvider.dart';
 import 'SplashScreen.dart';
 import 'firebase_options.dart';
 
@@ -33,16 +35,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String? userEmail = FirebaseAuth.instance.currentUser?.email;
-    return MaterialApp(
-      title: 'Game Hub Beta',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        fontFamily: GoogleFonts.outfit().fontFamily,
-        textTheme: const TextTheme(titleMedium: TextStyle(color: Colors.black)),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => WebViewProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Game Hub Beta',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          fontFamily: GoogleFonts.outfit().fontFamily,
+          textTheme: const TextTheme(titleMedium: TextStyle(color: Colors.black)),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreenWidget(),
       ),
-      debugShowCheckedModeBanner: false,
-      home: const SplashScreenWidget(),
     );
   }
 }
